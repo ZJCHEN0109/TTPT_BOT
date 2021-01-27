@@ -1,0 +1,29 @@
+<!-- jquery.js -->
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<!-- popper.js -->
+<script src="/node_modules/popper.js/dist/umd/popper.min.js"></script>
+<!-- bootstrap.js -->
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- axios.js -->
+<script src="/node_modules/axios/dist/axios.min.js"></script>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-auth.js"></script>
+
+<script>
+    // Firebase設定(Auth權限)
+    const firebaseConfig = {
+        // TODO: 替換成你的Firebase專案設定
+        apiKey: "AIzaSyA7ciCNb706F-vFJY_sx1rY8aK-qOC-ezQ",
+        authDomain: "express-app-af26e.firebaseapp.com",
+        projectId: "express-app-af26e",
+        storageBucket: "express-app-af26e.appspot.com",
+        messagingSenderId: "65736975647",
+        appId: "1:65736975647:web:765c451867a608cfadfc2a"
+    };
+    // 初始化Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="/assets/js/main.js"></script>
