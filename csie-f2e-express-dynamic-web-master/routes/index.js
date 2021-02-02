@@ -33,7 +33,7 @@ router.get('/', async function (req, res, next) {
   res.locals.productList = productList;
   //透過Views/index.ejs產生HTML內容並回應給瀏覽器
   //EJS=>HTML res為HTML的產生器
-  res.render('index');
+  res.render('default');
 });
 
 module.exports = router;

@@ -5,224 +5,209 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Scroll Detector</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/styles.min.css">
+    <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="http://www.jqueryscript.net/css/jquerysctipttop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
 </head>
 
-<body><!-- navbar -->
-    <nav id="navbar" class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">遠距藥事服務網</a>
-        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-            <span cla="" ss="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-it em">
-                    <a class="nav-link" data-target="section1" href="login.html">系統首頁</a>
-                </li>
-                <li class="nav-it em">
-                    <a class="nav-link" data-target="section1" href="#section1">簡介</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-target="section2" href="#section2">團隊介紹</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-target="section3" href="#section3">服務項目</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-target="section4" href="#section4">相關新聞</a>
-                </li>
-            </ul>
+<body>
+    <% include ../shared/navbar %>
+        <!-- header -->
+        <div class="jumbotron mb-0">
+            <div class="container">
+                <h2 >遠距藥事服務網</h2>
+                <p class="lead">Jumbo helper text</p>
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="navcol-1">
-<ul class="nav navbar-nav mr-auto">
-        <!--     <li class="nav-item dropdown"><a data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle nav-link" href="#">下拉選單 </a>
-            <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-        </li> -->
-</div>
-    </nav>
-    <!-- navbar end -->
-    <!-- header -->
-    <div class="jumbotron mb-0">
-        <div class="container">
-            <h5 class="display-3">藥事服務網</h5>
-<!--             <p class="lead">Jumbo helper text</p> -->
-        </div>
-    </div>
-    <!-- header end -->
-    <!-- section1 -->
-    <section id="section1" class="bg-warning">
-        <div class="container py-5">
-            <h1>簡介</h1>
-            <p>Lorem commodi?</p>
-            <img class="w-100" src="https://picsum.photos/id/700/800/400">
-            <p class="text-center">Image description</p>
-            <p>Lorem facilis.</p>
-            <h3>Subtitle</h3>
-            <p>Lorem,laborum.</p>
-            <h3>Subtitle</h3>
-            <p>Lorem quia?</p>
-        </div>
-    </section>
-    <!-- section1 end -->
-    <!-- section2 -->
-<section id="section2">
-    <div class="container">
-        <div class="row">
+        <!-- header end -->
+
+
+        <!-- section1 -->
+        <section id="section1" class="bg-warning">
             <div class="container py-5">
-            <h1>團隊介紹</h1>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur. </h3>
+                <h1>簡介</h1>
+                <p>Lorem commodi?</p>
+                <img class="w-100" src="https://picsum.photos/id/700/800/400">
+                <p class="text-center">Image description</p>
+                <p>Lorem facilis.</p>
+                <h3>Subtitle</h3>
+                <p>Lorem,laborum.</p>
+                <h3>Subtitle</h3>
+                <p>Lorem quia?</p>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <ul class="list-group timeline">
-                    <li class="list-group-item">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/1.jpg" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>2009-2011 </h4>
-                                <h4 class="subheading">Our Humble Beginnings </h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur! </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/2.jpg" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>March 2011 </h4>
-                                <h4 class="subheading">An Agency is Born </h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur! </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/3.jpg" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>December 2012 </h4>
-                                <h4 class="subheading">Transition to Full Service </h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur! </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/4.jpg" /></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>July 2014 </h4>
-                                <h4 class="subheading">Phase Two Expansion </h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur! </p>
-                            </div>
-                        </div>
-                    </li>
-<!--                     <li class="list-group-item timeline-inverted">
-                        <div class="timeline-image">
-                            <h4>歡迎加入我們</h4>
-                        </div>
-                    </li> -->
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-    <section id="section3" class="bg-success">
-        <div class="container py-5">
-            <h1>服務項目</h1>
-            <p>Lorem commodi?</p>
-            <img class="w-100" src="https://picsum.photos/id/1040/800/400">
-            <p class="text-center">Image description</p>
-            <h3>Subtitle</h3>
-            <p>Lorem,laborum.</p>
-            <h3>Subtitle</h3>
-            <p>Lorem quia?</p>
-        </div>
-    </section>
-    <!-- section3 end -->
-    <!-- section4 -->
-    <section id="section4" class="bg-info">
-        <div class="container py-5">
-            <h1>相關新聞</h1>
-            <p>Lorem commodi?</p>
-            <img class="w-100" src="https://picsum.photos/id/1041/800/400">
-            <p class="text-center">Image description</p>
-            <p>Lorem facilis.</p>
-            <p>Lorem rerum!</p>
-            <h3>Subtitle</h3>
-            <p>Loremm.</p>
-            <h3>Subtitle</h3>
-            <p>Lorem </p>
-        </div>
-    </section>
-    <!-- section4 end -->
-    <!-- scrollReport -->
-    <div id="scrollReport">目前的滑動狀態</div>
-    <!-- scrollReport end -->
-    <!-- jquery.js -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <!-- popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <!-- bootstrap.js -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-    <!-- scroll-detector.js -->
-    <script src="../../JavaScript/scroll-detector.js"></script>
-    <footer>
-        <div class="row">
-            <div class="col-sm-6 col-md-4 footer-navigation">
-                <h3><a href="#">Company<span>logo </span></a></h3>
-                <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
-                <p class="company-name">遠距藥事服務系統 © 2021</p>
-            </div>
-            <div class="col-sm-6 col-md-4 footer-contacts">
-                <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
-                    <p><span class="new-line-span">21 Revolution Street</span> Taipei, Taiwan</p>
+        </section>
+        <!-- section1 end -->
+        <!-- section2 -->
+        <section id="section2">
+            <div class="container">
+                <div class="row">
+                    <div class="container py-5">
+                        <h1>團隊介紹</h1>
+                        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur. </h3>
+                    </div>
                 </div>
-                <div><i class="fa fa-phone footer-contacts-icon"></i>
-                    <p class="footer-center-info email text-left"> +1 555 123456</p>
-                </div>
-                <div><i class="fa fa-envelope footer-contacts-icon"></i>
-                    <p> <a href="#" target="_blank">support@company.com</a></p>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-group timeline">
+                            <li class="list-group-item">
+                                <div class="timeline-image"><img class="rounded-circle img-fluid"
+                                        src="../assets/img/1.jpg" /></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>2009-2011 </h4>
+                                        <h4 class="subheading">Our Humble Beginnings </h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                            Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam,
+                                            recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium
+                                            consectetur! </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item timeline-inverted">
+                                <div class="timeline-image"><img class="rounded-circle img-fluid"
+                                        src="../assets/img/2.jpg" /></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>March 2011 </h4>
+                                        <h4 class="subheading">An Agency is Born </h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                            Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam,
+                                            recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium
+                                            consectetur! </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="timeline-image"><img class="rounded-circle img-fluid"
+                                        src="../assets/img/3.jpg" /></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>December 2012 </h4>
+                                        <h4 class="subheading">Transition to Full Service </h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                            Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam,
+                                            recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium
+                                            consectetur! </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item timeline-inverted">
+                                <div class="timeline-image"><img class="rounded-circle img-fluid"
+                                        src="../assets/img/4.jpg" /></div>
+                                <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                        <h4>July 2014 </h4>
+                                        <h4 class="subheading">Phase Two Expansion </h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                            Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam,
+                                            recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium
+                                            consectetur! </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="clearfix"></div>
-            <div class="col-md-4 footer-about">
-                <h4>About the company</h4>
-                <p> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet. </p>
-                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fab fa-line"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div>
+        </section>
+        <section id="section3" class="bg-success">
+            <div class="container py-5">
+                <h1>服務項目</h1>
+                <p>Lorem commodi?</p>
+                <img class="w-100" src="https://picsum.photos/id/1040/800/400">
+                <p class="text-center">Image description</p>
+                <h3>Subtitle</h3>
+                <p>Lorem,laborum.</p>
+                <h3>Subtitle</h3>
+                <p>Lorem quia?</p>
             </div>
-        </div>
-    </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/chart.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="assets/js/script.min.js"></script>
-</body>
+        </section>
+        <!-- section3 end -->
+        <!-- section4 -->
+        <section id="section4" class="bg-info">
+            <div class="container py-5">
+                <h1>相關新聞</h1>
+                <p>Lorem commodi?</p>
+                <img class="w-100" src="https://picsum.photos/id/1041/800/400">
+                <p class="text-center">Image description</p>
+                <p>Lorem facilis.</p>
+                <p>Lorem rerum!</p>
+                <h3>Subtitle</h3>
+                <p>Loremm.</p>
+                <h3>Subtitle</h3>
+                <p>Lorem </p>
+            </div>
+        </section>
+
+        <!-- section4 end -->
+        <!-- scrollReport -->
+        <div id="scrollReport">目前的滑動狀態</div>
+        <!-- scrollReport end -->
+        <!-- jquery.js -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+            </script>
+        <!-- popper.js -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+            </script>
+        <!-- bootstrap.js -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+            </script>
+        <!-- scroll-detector.js -->
+        <script src="/assets/js/scroll-detector.js"></script>
+
+        <footer>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 footer-navigation">
+                    <h3><a href="#">Company<span>logo </span></a></h3>
+                    <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a
+                            href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a
+                            href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+                    <p class="company-name">遠距藥事服務系統 © 2021</p>
+                </div>
+                <div class="col-sm-6 col-md-4 footer-contacts">
+                    <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                        <p><span class="new-line-span">21 Revolution Street</span> Taipei, Taiwan</p>
+                    </div>
+                    <div><i class="fa fa-phone footer-contacts-icon"></i>
+                        <p class="footer-center-info email text-left"> +1 555 123456</p>
+                    </div>
+                    <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                        <p> <a href="#" target="_blank">support@company.com</a></p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-4 footer-about">
+                    <h4>About the company</h4>
+                    <p> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu
+                        auctor lacus vehicula sit amet. </p>
+                    <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
+                                class="fab fa-line"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i
+                                class="fab fa-youtube"></i></a></div>
+                </div>
+            </div>
+        </footer>
+        <% include ../shared/scripts %>
+ </body>
 
 </html>

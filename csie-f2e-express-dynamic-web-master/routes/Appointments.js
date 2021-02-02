@@ -4,10 +4,23 @@ const axios = require('axios');
 const router = express.Router();
 //引用db.js admin.firestore()=>db
 const db = require("../db");
+const loginChecker = require("../middleware/login-checker");
+
+//利用中介層(檢查是否登入)
+loginChecker(router)
 
 // 首頁路由
 router.get('/', async function (req, res, next) {
-    res.render("Appointment/Appointments")
+    res.render("Appointment/index")
+});
+
+router.get('/index', async function (req, res, next) {
+    res.render("Appointment/index")
+});
+
+router.get('/default', function (req, res, next) {
+    // 渲染 product/create.ejs
+    res.render('Appointment/default');
 });
 
 router.get('/profile', function (req, res, next) {
@@ -18,6 +31,16 @@ router.get('/profile', function (req, res, next) {
 router.get('/table', function (req, res, next) {
     // 渲染 product/create.ejs
     res.render('Appointment/table');
+});
+
+router.get('/record', function (req, res, next) {
+    // 渲染 product/create.ejs
+    res.render('Appointment/record');
+});
+
+router.get('/recordmanager', function (req, res, next) {
+    // 渲染 product/create.ejs
+    res.render('Appointment/recordmanager');
 });
 
 router.get('/login', function (req, res, next) {
@@ -35,20 +58,62 @@ router.get('/forgot-password', function (req, res, next) {
     res.render('Appointment/forgot-password');
 });
 
-router.get('/404', function (req, res, next) {
-    // 渲染 product/create.ejs
-    res.render('Appointment/404');
-});
-
 router.get('/schdule', function (req, res, next) {
     // 渲染 product/create.ejs
     res.render('Appointment/schdule');
+});
+
+router.get('/schedulemanager', function (req, res, next) {
+    // 渲染 product/create.ejs
+    res.render('Appointment/schedulemanager');
+});
+
+router.get('/phymanager', function (req, res, next) {
+    // 渲染 product/create.ejs
+    res.render('Appointment/phymanager');
+});
+
+router.get('/usermanager', function (req, res, next) {
+    // 渲染 product/create.ejs
+    res.render('Appointment/usermanager');
 });
 
 router.get('/blank', function (req, res, next) {
     // 渲染 product/create.ejs
     res.render('Appointment/blank');
 });
+
+router.get('/aichart', function (req, res, next) {
+    // 渲染 product/create.ejs
+    res.render('Appointment/aichart');
+});
+
+router.get('/404', function (req, res, next) {
+    // 渲染 product/create.ejs
+    res.render('Appointment/404');
+});
+
+// 登出
+router.post('/logout', function (req, res, next) {
+    // Sign Out
+    // https://firebase.google.com/docs/auth/admin/manage-cookies#sign_out
+    // const cookieName = req.app.locals.cookieName;
+    const cookieName = "ttpt-session";
+    const sessionCookie = req.cookies[cookieName] || '';
+    //清除指定cookie
+    res.clearCookie(cookieName);
+    //驗證sessionCookie是否有效
+    admin.auth().verifySessionCookie(sessionCookie)
+        .then(user => {
+            //讓Firbase Server知道此人的sessionCookie是無效的
+            admin.auth().revokeRefreshTokens(user.sub)
+            res.status(200).json({ msg: "Logout!" })
+        })
+        .catch(err => {
+            res.status(200).json({ msg: 'Logout' })
+        });
+});
+
 
 router.post('/product/create', async function (req, res, next) {
     console.log('[準備新增商品]');

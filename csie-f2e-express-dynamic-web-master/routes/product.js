@@ -16,6 +16,10 @@ router.get('/create', function (req, res, next) {
     // 渲染 product/create.ejs
     res.render('product/create');
 });
+router.get('/Carts', function (req, res, next) {
+    // 渲染 product/create.ejs
+    res.render('product/Carts');
+});
 
 // 編輯產品路由
 ///edit/:pid => :動態參數(可任意取名)

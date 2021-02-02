@@ -40,13 +40,13 @@ app.use('/product', productRouter);
 //如果有人對/api下請求，分派/api處理相關邏輯
 app.use('/api', apiRouter);
 //如果有人對/Patients下請求，分派/Patients處理相關邏輯
-app.use('/Cart', CartsRouter);
+// app.use('/Carts', CartsRouter);
 //如果有人對/Patients下請求，分派/Patients處理相關邏輯
-app.use('/product/Cart', CartsRouter);
+// app.use('/product/Carts', CartsRouter);
 //如果有人對/Appointment下請求，分派/Appointments處理相關邏輯
 app.use('/Appointment', AppointmentsRouter);
 //如果有人對/Appointment下請求，分派/Appointments處理相關邏輯
-// app.use('/Appointment', AppointmentsRouter);
+app.use('/Appointment/Appointment', AppointmentsRouter);
 
 
 // catch 404 and forward to error handler

@@ -5,6 +5,24 @@ const router = express.Router();
 //引用db.js admin.firestore()=>db
 const db = require("../db");
 const admin = require("../firebase");
+// const { check, validationResult } = require('express-validator');
+
+//驗證表單內資料(無使用)
+// const app=express()
+// app.use(express.json())
+// app.post('/form',[
+//     check('name').isLength({ min: 3 }),
+//     check('email').isEmail(),
+//     check('age').isNumeric()
+//   ],(req,res)=>{
+//     const errors = validationResult(req)
+//     if(!errors.isEmpty()){
+//         return res.status(422).json({errors:errors.array()})
+//     }
+//     const name=req.body.name
+//     const email=req.body.email
+//     const age=req.body.age
+// });
 
 // 登入
 router.post('/login', function (req, res, next) {

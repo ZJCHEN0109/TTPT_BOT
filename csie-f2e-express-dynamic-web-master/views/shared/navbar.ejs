@@ -1,77 +1,129 @@
 <!-- navbar -->
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">My Website</a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+
+<nav id="navbar" class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">遠距藥事服務網</a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
         aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav ml-auto">
+            <li class="nav-it em">
+                <a class="nav-link" data-target="section1" href="#section1">簡介</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-target="section2" href="#section2">團隊介紹</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-target="section3" href="#section3">服務項目</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-target="section4" href="#section4">相關新聞</a>
+            </li>
             <% if (!auth.isLogin){%>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="modal" href="#signUpModal">註冊</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="modal" href="#loginModal">登入</a>
-                    <% } %>
+
                 </li>
-                <% if (auth.isAdmin){%>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/product/create">建立商品</a>
-                    </li>
+                <% } %>
+                    <% if (auth.isLogin){%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Appointment/">藥事諮詢預約</a>
+                        </li>
+                        <% if (auth.isAdmin){%>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/product/Carts">Jquery建立商品</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/product/create">建立商品</a>
+                            </li>
+                        <% } %>
+                        <li class="nav-item">
+                            <a id="logoutBtn" class="nav-link">登出</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                使用者:<%=auth.user.email %>
+                            </a>
+                        </li>
                     <% } %>
-                        <% if (auth.isLogin){%>
-                            <li class="nav-item">
-                                <a class="nav-link">
-                                    使用者:<%=auth.user.email %>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Appointment/">藥事諮詢預約</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Carts/">Jquery建立商品</a>
-                            </li>
-                            <li class="nav-item">
-                                <a id="logoutBtn" class="nav-link">登出</a>
-                            </li>
-                            <% } %>
 
         </ul>
     </div>
 </nav>
 <!-- navbar end -->
-
-<!-- signUpModal -->
-<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<!-- signUpModal2 -->
+<div class="modal fade" class="modal-dialog" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form id="signUpForm" class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">註冊</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="signUpEmail">Email</label>
-                    <input type="email" id="signUpEmail" class="form-control" placeholder="請輸入您的Email" required>
+        <div class="card shadow-lg o-hidden border-0 my-5">
+            <form id="signUpForm" class="modal-content" data-toggle="validator" role="form">
+
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h4 class="text-dark mb-4">Create an Account</h4>
+                    </div>
+                    <form class="user" role="form" data-toggle="validator">
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input class="form-control form-control-user" type="text" id="InputFirstName"
+                                    placeholder="First Name" name="first_name" style="font-size: 15px;" autofocus="" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <input class="form-control form-control-user" type="text" id="InputLastName"
+                                    placeholder="Last Name" name="last_name" style="font-size: 15px;" autofocus="" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control mb-3 form-control-user" type="text" id="InputFullname"
+                                style="font-size: 15px;" autofocus placeholder="Full Name" name="InputFullname" required>
+
+                            <input class="form-control form-control-user" type="email" id="signUpEmail"
+                                aria-describedby="emailHelp" placeholder="Email Address" name="email"
+                                style="font-size: 15px;" autofocus data-error="that email address is invalid" required>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <input class="form-control" type="password" id="signUpPassword" for="signUpPassword"
+                                    placeholder="Password" name="signUpPassword" style="font-size: 15px;"
+                                    data-match-error="Password don't match" autofocus required minlength="8"
+                                    maxlength="20">
+                            </div>
+                            <div class="col-sm-6 help-block with-errors">
+                                <input class="form-control" type="password" id="confirmpassword" for="confirmpassword"
+                                    placeholder="Confirm Password" name="confirmpassword" style="font-size: 15px;"
+                                    data-match="#signUpPassword" data-match-error="Password don't match" autofocus
+                                    required minlength="8" maxlength="20">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <small id="passwordHelpBlock" class="form-text text-muted">
+                            帳號及密碼必須8-20長度，包含大小寫英文和數字，不能有空白欄位。
+                        </small>
+                        <button class="btn btn-primary btn-block text-white btn-user" type="submit"
+                            style="font-size: 18px;">Register Account</button>
+                        <hr><a class="btn btn-primary btn-block text-white btn-google btn-user" role="button"
+                            style="font-size: 18px;"><i class="fab fa-google"></i>&nbsp; Register with
+                            Google</a><a class="btn btn-primary btn-block text-white btn-facebook btn-user"
+                            role="button" style="font-size: 18px;"><i class="fab fa-facebook-f"></i>&nbsp;
+                            Register with Facebook</a>
+                        <hr>
+                    </form>
+                    <div class="text-center"><a class="small" href="../Appointment/forgot-password"
+                            style="font-size: 15px;">Forgot Password?</a></div>
+                    <!-- <div class="text-center"><a class="small" href="../Appointment/login" style="font-size: 15px;">Already
+                        have an account? Login!</a></div> -->
                 </div>
-                <div class="form-group">
-                    <label for="signUpPassword">密碼</label>
-                    <input type="password" id="signUpPassword" class="form-control" placeholder="請輸入您的密碼" minlength="6"
-                        required>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                <button type="submit" class="btn btn-primary">註冊</button>
-            </div>
-        </form>
+            </form>
+
+        </div>
     </div>
 </div>
-<!-- signUpModal -->
-
 <!-- loginModal -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -100,4 +152,64 @@
         </form>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#signUpForm").validate({
+            rules: {
+                InputFullname: { //使用者名稱必填至少3位 
+                    pattern:true,
+                    required: true,
+                    minlength: 3
+                },
+                signUpPassword: { //密碼必填 至少6位 
+                    required: true,
+                    minlength: 8
+                },
+                confirmpassword: { //密碼確認 
+                    required: true,
+                    equalTo: "#signUpPassword"
+                },
+                address: { //出生地必填 
+                    required: true
+                },
+                mobile: { //手機必填 驗證格式 
+                    required: true,
+                    mobile: true
+                },
+                signUpEmail: { //email必填 驗證格式 
+                    required: true,
+                    email: true
+                },
+            },
+            messages: {
+                InputFullname: {
+                    pattern:"輸入格式錯誤",
+                    required: "使用者名稱不能為空!",
+                    minlength: "使用者名稱至少三位!"
+                },
+                signUpPassword: {
+                    required: "密碼不能為空!",
+                    minlength: "密碼至少八位!"
+                },
+                confirmpassword: {
+                    required: "密碼確認不能為空!",
+                    equalTo: "兩次輸入密碼不一致 !"
+                },
+                address: {
+                    required: "請選擇出生地!",
+                },
+                mobile: {
+                    required: "手機不能為空!",
+                    mobile: "手機格式不正確",
+                },
+                email: {
+                    required: "郵箱不能為空!",
+                    email: "郵箱格式不正確",
+                },
+            }
+        });
+    }) 
+</script>
+
 <!-- loginModal -->
