@@ -26,30 +26,27 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <% if (auth.isLogin){%>
-                    <li class="nav-item"><a class="nav-link" href="aichart"><i class="fa fa-signal"></i>
-					<span style="font-size: 14px;">AI數據分析</span></a><a class="nav-link" href="schdule"><i class="fa fa-calendar-minus-o"></i>
-					<span style="font-size: 14px;">藥師服務排程</span></a><a class="nav-link" href="record"><i class="fa fa-medkit"></i>
-					<span style="font-size: 14px;">藥事服務紀錄</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="aichart"><i class="fa fa-signal"></i><span style="font-size: 14px;">AI數據分析</span></a><a class="nav-link" href="schdule"><i class="fa fa-calendar-minus-o"></i><span style="font-size: 14px;">藥師服務排程</span></a><a class="nav-link" href="record"><i class="fa fa-medkit"></i><span style="font-size: 14px;">藥事服務紀錄</span></a></li>
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="phymanager"><i class="fa fa-user-md"></i>
-					<span style="font-size: 14px;">藥師會員管理</span></a><a class="nav-link" href="usermanager"><i class="fa fa-users"></i>
-					<span style="font-size: 14px;">一般會員管理</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="recordmanager"><i class="fa fa-medkit"></i>
-					<span style="font-size: 14px;">藥事服務管理</span></a><a class="nav-link" href="profile"><i class="fa fa-male"></i>
-					<span style="font-size: 14px;">個人資料管理</span></a><a class="nav-link" href="forgot-password"><i class="fas fa-key"></i>
-					<span style="font-size: 14px;">忘記密碼</span></a><a id="logoutBtn" class="nav-link"><i class="far fa-user-circle"></i>
-					<span style="font-size: 14px;">登出</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="register"><i class="fas fa-user-circle"></i>
-					<span style="font-size: 14px;">註冊</span></a></li>
+                    <li class="nav-item">
+                        <% if (auth.isAdmin){%>
+                        <a class="nav-link" href="phymanager"><i class="fa fa-user-md"></i><span style="font-size: 14px;">藥師會員管理</span></a>
+                        <a class="nav-link" href="usermanager"><i class="fa fa-users"></i><span style="font-size: 14px;">一般會員管理</span></a>
+                        <% } %>
+                    </li>
+                    <li class="nav-item">
+                    <% if (auth.isPharmy){%>
+                        <a class="nav-link" href="recordmanager"><i class="fa fa-medkit"></i><span style="font-size: 14px;">藥事服務管理</span></a>
+                    <% } %>
+                        <a class="nav-link" href="profile"><i class="fa fa-male"></i><span style="font-size: 14px;">個人資料管理</span></a>
+                        <a class="nav-link" href="forgot-password"><i class="fas fa-key"></i><span style="font-size: 14px;">忘記密碼</span></a><a class="nav-link" href="login"><i class="far fa-user-circle"></i><span style="font-size: 14px;">登出</span></a></li>
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="404"><i class="fas fa-exclamation-circle"></i>
-					<span style="font-size: 14px;">404網站維護</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="blank"><i class="fas fa-window-maximize"></i>
-					<span style="font-size: 14px;">Blank Page</span></a></li>
+                    <% if (auth.isAdmin){%>
+                    <li class="nav-item"><a class="nav-link" href="register"><i class="fas fa-user-circle"></i><span style="font-size: 14px;">註冊</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="404"><i class="fas fa-exclamation-circle"></i><span style="font-size: 14px;">404網站維護</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="blank"><i class="fas fa-window-maximize"></i><span style="font-size: 14px;">Blank Page</span></a></li>
                     <li class="nav-item"></li>
                     <% } %>
-
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -243,7 +240,7 @@
                                     <h6 class="text-primary font-weight-bold m-0">Revenue Sources</h6>
                                     <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
                                         <div class="dropdown-menu shadow dropdown-menu-right animated--fade-in">
-                                            <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#"><%="使用者:"%><%=auth.user.email %></a>
+                                            <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item" href="#">&nbsp;Action</a><a class="dropdown-item" href="#">&nbsp;Another action</a>
                                             <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
                                         </div>
                                     </div>
@@ -377,8 +374,6 @@
                     </div>
                 </div>
             </div>
-            <% include ../shared/scripts %>
-
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
                     <div class="text-center my-auto copyright"><span>Copyright © Brand 2021</span></div>
@@ -386,6 +381,8 @@
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
+        <span id="user_id" class="user_id" type="input" style="visibility:hidden" ><%=auth.user.user_id %></span>
+    <% include ../shared/scripts %>
     <script src="../../assets/js/jquery.min.js"></script>
     <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../../assets/js/chart.min.js"></script>

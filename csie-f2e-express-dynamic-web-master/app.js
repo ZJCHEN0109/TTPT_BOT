@@ -44,9 +44,9 @@ app.use('/api', apiRouter);
 //如果有人對/Patients下請求，分派/Patients處理相關邏輯
 // app.use('/product/Carts', CartsRouter);
 //如果有人對/Appointment下請求，分派/Appointments處理相關邏輯
-app.use('/Appointment', AppointmentsRouter);
+app.use('/Appointments', AppointmentsRouter);
 //如果有人對/Appointment下請求，分派/Appointments處理相關邏輯
-app.use('/Appointment/Appointment', AppointmentsRouter);
+app.use('/Appointments/Appointment', AppointmentsRouter);
 
 
 // catch 404 and forward to error handler

@@ -1,15 +1,15 @@
 // 設置管理者路由守衛
-function adminGuard(router) {
+function pharmyGuard(router) {
     router.use(function (req, res, next) {
         // TODO: 管理員驗證路由守衛
-        const isAdmin = res.locals.auth.isAdmin;
-        if (isAdmin) {
+        const isPharmy = res.locals.auth.isPharmy;
+        if (isPharmy) {
             next();
         } else {
-            //非管理者強制轉回首頁
+            //非藥事人員強制轉回首頁
             res.redirect("/");
         }
     });
 }
 
-module.exports = adminGuard;
+module.exports = pharmyGuard;

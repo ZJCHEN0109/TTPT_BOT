@@ -16,11 +16,17 @@ router.get('/create', function (req, res, next) {
     // 渲染 product/create.ejs
     res.render('product/create');
 });
+
+//設定產品首路由
+router.get('/index', function (req, res, next) {
+    res.render('product/index');
+});
+
+//設定JavaScript購物車首頁路由
 router.get('/Carts', function (req, res, next) {
     // 渲染 product/create.ejs
     res.render('product/Carts');
 });
-
 // 編輯產品路由
 ///edit/:pid => :動態參數(可任意取名)
 //req請求 res回應

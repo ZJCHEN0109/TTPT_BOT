@@ -284,7 +284,8 @@ $(".add-item-form").submit(function (e) {
     //取得該pid所對應的數量
     // document.getElementById(`amountInput${pid}`).value
     let amount=$(`#amountInput${pid}`).val();
-    amount=parseInt(amount);//不論用javascript或jquery取的value均為字串必須轉換成整數
+    amount=parseInt(amount);
+    //不論用javascript或jquery取的value均為字串必須轉換成整數
     // console.log("[數量]",amount);
 
     //把產品ID與數量傳給購物車的新增品項函式，記得前面已經new一個cart物件

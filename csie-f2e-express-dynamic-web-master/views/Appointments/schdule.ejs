@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Page Not Found - Brand</title>
+    <title>Blank Page - Brand</title>
     <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
@@ -26,26 +26,27 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link" href="aichart"><i class="fa fa-signal"></i>
-					<span style="font-size: 14px;">AI數據分析</span></a><a class="nav-link" href="schdule"><i class="fa fa-calendar-minus-o"></i>
-					<span style="font-size: 14px;">藥師服務排程</span></a><a class="nav-link" href="record"><i class="fa fa-medkit"></i>
-					<span style="font-size: 14px;">藥事服務紀錄</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="aichart"><i class="fa fa-signal"></i><span style="font-size: 14px;">AI數據分析</span></a><a class="nav-link" href="schdule"><i class="fa fa-calendar-minus-o"></i><span style="font-size: 14px;">藥師服務排程</span></a><a class="nav-link" href="record"><i class="fa fa-medkit"></i><span style="font-size: 14px;">藥事服務紀錄</span></a></li>
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="phymanager"><i class="fa fa-user-md"></i>
-					<span style="font-size: 14px;">藥師會員管理</span></a><a class="nav-link" href="usermanager"><i class="fa fa-users"></i>
-					<span style="font-size: 14px;">一般會員管理</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="recordmanager"><i class="fa fa-medkit"></i>
-					<span style="font-size: 14px;">藥事服務管理</span></a><a class="nav-link" href="profile"><i class="fa fa-male"></i>
-					<span style="font-size: 14px;">個人資料管理</span></a><a class="nav-link" href="forgot-password"><i class="fas fa-key"></i>
-					<span style="font-size: 14px;">忘記密碼</span></a><a class="nav-link" href="login"><i class="far fa-user-circle"></i>
-					<span style="font-size: 14px;">登出</span></a></li>
+                    <li class="nav-item">
+                        <% if (auth.isAdmin){%>
+                        <a class="nav-link" href="phymanager"><i class="fa fa-user-md"></i><span style="font-size: 14px;">藥師會員管理</span></a>
+                        <a class="nav-link" href="usermanager"><i class="fa fa-users"></i><span style="font-size: 14px;">一般會員管理</span></a>
+                        <% } %>
+                    </li>
+                    <li class="nav-item">
+                    <% if (auth.isPharmy){%>
+                        <a class="nav-link" href="recordmanager"><i class="fa fa-medkit"></i><span style="font-size: 14px;">藥事服務管理</span></a>
+                    <% } %>
+                        <a class="nav-link" href="profile"><i class="fa fa-male"></i><span style="font-size: 14px;">個人資料管理</span></a>
+                        <a class="nav-link" href="forgot-password"><i class="fas fa-key"></i><span style="font-size: 14px;">忘記密碼</span></a><a class="nav-link" href="login"><i class="far fa-user-circle"></i><span style="font-size: 14px;">登出</span></a></li>
+                    <li class="nav-item"></li>
+                    <% if (auth.isAdmin){%>
                     <li class="nav-item"><a class="nav-link" href="register"><i class="fas fa-user-circle"></i><span style="font-size: 14px;">註冊</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="404"><i class="fas fa-exclamation-circle"></i><span style="font-size: 14px;">404網站維護</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="blank"><i class="fas fa-window-maximize"></i><span style="font-size: 14px;">Blank Page</span></a></li>
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="404"><i class="fas fa-exclamation-circle"></i>
-					<span style="font-size: 14px;">404網站維護</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="blank"><i class="fas fa-window-maximize"></i>
-					<span style="font-size: 14px;">Blank Page</span></a></li>
-                    <li class="nav-item"></li>
+                    <% } %>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -150,101 +151,48 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <div class="text-center mt-5">
-                        <div class="error mx-auto" data-text="404">
-                            <p class="m-0">404</p>
+                    <h3 class="text-dark mb-1">預約藥師</h3>
+                </div>
+                <div class="container">
+                    <div class="card-group">
+                        <div class="card" style="margin-right: 10px;"><img class="card-img-top w-100 d-block" src="../../assets/img/avatars/avatar2.jpeg">
+                            <div class="card-body">
+                                <h4 class="card-title">藥師</h4>
+                                <p class="card-text">簡介Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary" id="physelect" type="button">Button</button>
+                            </div>
                         </div>
-                        <p class="text-dark mb-5 lead">Page Not Found</p>
-                        <p class="text-black-50 mb-0">The Page is Maintained</p><a href="./">← Back to MainPage</a>
+                        <div class="card" style="margin-right: 10px;"><img class="card-img-top w-100 d-block" src="../../assets/img/avatars/avatar4.jpeg">
+                            <div class="card-body">
+                                <h4 class="card-title">藥師<br></h4>
+                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary" type="button">Button</button>
+                            </div>
+                        </div>
+                        <div class="card"><img class="card-img-top w-100 d-block" src="../../assets/img/avatars/avatar1.jpeg">
+                            <div class="card-body">
+                                <h4 class="card-title">藥師<br></h4>
+                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary" type="button">Button</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width:170px;box-shadow:0px 0px 4px 0px rgba(0,0,0,0.3);border-radius:4px;display:inline-block;position:relative;margin-right:40px;margin-bottom:40px;"></div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10"><label style="font-size: 14px;"><strong>Sunday</strong></label><input type="date">
+                        <div class="row">
+                            <div class="col"><label style="font-size: 14px;">From</label><input type="time"></div>
+                            <div class="col"><label style="font-size: 14px;">To</label><input type="time"></div>
+                        </div>
                     </div>
                 </div>
-                <section class="bg-light py-5" id="GreenPay">
-                    <h2 class="text-center mb-5">遠距藥事服務收費方式</h2>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-4 text-center">
-                                <div class="card mb-4">
-                                    <div class="bg-white card-header">
-                                        <h4 class="text-primary">Starter</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <h1 class="card-title" style="font-size: 32px;">NT$600<small class="text-muted">&nbsp;/Month</small></h1>
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2"><i class="icon ion-checkmark mr-2 text-primary"></i>Singel User</li>
-                                            <li class="mb-2"><i class="icon ion-checkmark mr-2 text-primary"></i>5GB Storage</li>
-                                            <li class="mb-2"><i class="icon ion-checkmark mr-2 text-primary"></i>5 projects</li>
-                                            <li class="text-muted mb-2"><i class="icon ion-close mr-2"></i>Free Domain</li>
-                                            <li class="text-muted mb-2"><i class="icon ion-close mr-2"></i>Premium Support</li>
-                                        </ul><a class="btn btn-primary mt-2" role="button" href="#">Get Started</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 text-center">
-                                <div class="card mb-4">
-                                    <div class="bg-white card-header">
-                                        <h4 class="text-primary">Professional</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <h1 class="card-title" style="font-size: 32px;">NT$1500<small class="text-muted">&nbsp;/3Month</small></h1>
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2"><i class="icon ion-checkmark mr-2 text-primary"></i>Singel User</li>
-                                            <li class="mb-2"><i class="icon ion-checkmark mr-2 text-primary"></i>5GB Storage</li>
-                                            <li class="mb-2"><i class="icon ion-checkmark mr-2 text-primary"></i>5 projects</li>
-                                            <li class="text-muted mb-2"><i class="icon ion-checkmark mr-2 text-primary"></i>Free Domain</li>
-                                            <li class="text-muted mb-2"><i class="icon ion-close mr-2"></i>Premium Support</li>
-                                        </ul><a class="btn btn-primary mt-2" role="button" href="#">Get Started</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4 text-center">
-                                <div class="card mb-4">
-                                    <div class="bg-white card-header">
-                                        <h4 class="text-primary">Business</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <h1 class="card-title" style="font-size: 32px;">NT$5500<small class="text-muted">&nbsp;/Year</small></h1>
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2"><i class="icon ion-checkmark mr-2 text-primary"></i>Singel User</li>
-                                            <li class="mb-2"><i class="icon ion-checkmark mr-2 text-primary"></i>5GB Storage</li>
-                                            <li class="mb-2"><i class="icon ion-checkmark mr-2 text-primary"></i>5 projects</li>
-                                            <li class="text-muted mb-2"><i class="icon ion-checkmark mr-2 text-primary"></i>Free Domain</li>
-                                            <li class="text-muted mb-2"><i class="icon ion-checkmark mr-2 text-primary"></i>Premium Support</li>
-                                        </ul><a class="btn btn-primary mt-2" role="button" href="#">Get Started</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <footer>
-                        <div class="row">
-                            <div class="col-sm-6 col-md-4 footer-navigation">
-                                <h3><a href="#">Company<span>logo </span></a></h3>
-                                <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
-                                <p class="company-name">Company Name © 2015 </p>
-                            </div>
-                            <div class="col-sm-6 col-md-4 footer-contacts">
-                                <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
-                                    <p><span class="new-line-span">21 Revolution Street</span> Paris, France</p>
-                                </div>
-                                <div><i class="fa fa-phone footer-contacts-icon"></i>
-                                    <p class="footer-center-info email text-left"> +1 555 9999</p>
-                                </div>
-                                <div><i class="fa fa-envelope footer-contacts-icon"></i>
-                                    <p> <a href="#" target="_blank">support@company.com</a></p>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="col-md-4 footer-about">
-                                <h4>About the company</h4>
-                                <p> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet. </p>
-                                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
-                            </div>
-                        </div>
-                    </footer>
-                </section>
             </div>
-        </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"></div>
+                </div>
+            </footer>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
+        <span id="user_id" class="user_id" type="input" style="visibility:hidden" ><%=auth.user.user_id %></span>
 	<% include ../shared/scripts %>
     <script src="../../assets/js/jquery.min.js"></script>
     <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>

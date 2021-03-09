@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Blank Page - Brand</title>
+    <title>Table - Brand</title>
     <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
@@ -28,13 +28,25 @@
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link" href="aichart"><i class="fa fa-signal"></i><span style="font-size: 14px;">AI數據分析</span></a><a class="nav-link" href="schdule"><i class="fa fa-calendar-minus-o"></i><span style="font-size: 14px;">藥師服務排程</span></a><a class="nav-link" href="record"><i class="fa fa-medkit"></i><span style="font-size: 14px;">藥事服務紀錄</span></a></li>
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="phymanager"><i class="fa fa-user-md"></i><span style="font-size: 14px;">藥師會員管理</span></a><a class="nav-link" href="usermanager"><i class="fa fa-users"></i><span style="font-size: 14px;">一般會員管理</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="recordmanager"><i class="fa fa-medkit"></i><span style="font-size: 14px;">藥事服務管理</span></a><a class="nav-link" href="profile"><i class="fa fa-male"></i><span style="font-size: 14px;">個人資料管理</span></a><a class="nav-link" href="forgot-password"><i class="fas fa-key"></i><span style="font-size: 14px;">忘記密碼</span></a><a class="nav-link" href="login"><i class="far fa-user-circle"></i><span style="font-size: 14px;">登出</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="register"><i class="fas fa-user-circle"></i><span style="font-size: 14px;">註冊</span></a></li>
+                    <li class="nav-item">
+                        <% if (auth.isAdmin){%>
+                        <a class="nav-link" href="phymanager"><i class="fa fa-user-md"></i><span style="font-size: 14px;">藥師會員管理</span></a>
+                        <a class="nav-link" href="usermanager"><i class="fa fa-users"></i><span style="font-size: 14px;">一般會員管理</span></a>
+                        <% } %>
+                    </li>
+                    <li class="nav-item">
+                    <% if (auth.isPharmy){%>
+                        <a class="nav-link" href="recordmanager"><i class="fa fa-medkit"></i><span style="font-size: 14px;">藥事服務管理</span></a>
+                    <% } %>
+                        <a class="nav-link" href="profile"><i class="fa fa-male"></i><span style="font-size: 14px;">個人資料管理</span></a>
+                        <a class="nav-link" href="forgot-password"><i class="fas fa-key"></i><span style="font-size: 14px;">忘記密碼</span></a><a class="nav-link" href="login"><i class="far fa-user-circle"></i><span style="font-size: 14px;">登出</span></a></li>
                     <li class="nav-item"></li>
+                    <% if (auth.isAdmin){%>
+                    <li class="nav-item"><a class="nav-link" href="register"><i class="fas fa-user-circle"></i><span style="font-size: 14px;">註冊</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="404"><i class="fas fa-exclamation-circle"></i><span style="font-size: 14px;">404網站維護</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="blank"><i class="fas fa-window-maximize"></i><span style="font-size: 14px;">Blank Page</span></a></li>
                     <li class="nav-item"></li>
+                    <% } %>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
@@ -138,146 +150,118 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="container">
-                    <h1 class="text-center">藥事服務歷史紀錄</h1>
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4"></h3>
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 font-weight-bold">服務紀錄管理</p><button class="btn btn-primary" type="button">新增</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                                <table class="table my-0" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>姓名</th>
+                                            <th>居住縣市</th>
+                                            <th>諮詢藥師</th>
+                                            <th>諮詢日期</th>
+                                            <th>諮詢時間</th>
+                                            <th>聯絡電話</th>
+                                            <th>聯絡手機</th>
+                                            <th>功能</th>
+                                            <th>功能</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><img class="rounded-circle mr-2" width="30" height="30" src="../../assets/img/avatars/avatar1.jpeg">Airi Satou</td>
+                                            <td>Tokyo</td>
+                                            <td>Angelica Ramos<br></td>
+                                            <td>2008/11/28</td>
+                                            <td>0800~1000</td>
+                                            <td>02-123456</td>
+                                            <td>0900123456</td>
+                                            <td><a href="#">Delete</a></td>
+                                            <td><a href="#">Edit</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img class="rounded-circle mr-2" width="30" height="30" src="../../assets/img/avatars/avatar2.jpeg">Angelica</td>
+                                            <td>Chief Executive Officer(CEO)</td>
+                                            <td>London</td>
+                                            <td>Ashton Cox<br></td>
+                                            <td>2009/10/09<br></td>
+                                            <td>0800~1000<br></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img class="rounded-circle mr-2" width="30" height="30" src="../../assets/img/avatars/avatar3.jpeg">Ashton Cox</td>
+                                            <td>Junior Technical Author</td>
+                                            <td>San Francisco</td>
+                                            <td>Ashton Cox<br></td>
+                                            <td>2009/01/12<br></td>
+                                            <td>0800~1000<br></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img class="rounded-circle mr-2" width="30" height="30" src="../../assets/img/avatars/avatar4.jpeg">Bradley Greer</td>
+                                            <td>Software Engineer</td>
+                                            <td>London</td>
+                                            <td>Ashton Cox<br></td>
+                                            <td>2012/10/13<br></td>
+                                            <td>0800~1000<br></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img class="rounded-circle mr-2" width="30" height="30" src="../../assets/img/avatars/avatar5.jpeg">Brenden Wagner</td>
+                                            <td>Software Engineer</td>
+                                            <td>San Francisco</td>
+                                            <td>Ashton Cox<br></td>
+                                            <td>2011/06/07<br></td>
+                                            <td>0800~1000<br></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img class="rounded-circle mr-2" width="30" height="30" src="../../assets/img/avatars/avatar1.jpeg">Brielle Williamson</td>
+                                            <td>Integration Specialist</td>
+                                            <td>New York</td>
+                                            <td>Ashton Cox<br></td>
+                                            <td>2012/12/02<br></td>
+                                            <td>0800~1000<br></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr></tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                        <ul class="pagination">
+                                            <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="container-fluid">	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="VivaTimeline">
-					<dl>
-                        <dt>May 2016</dt>                                    
-                        <dd class="pos-left clearfix">
-                            <div class="circ"></div>
-                            <div class="time">Feb 03</div>
-                            <div class="events">
-                                <div class="events-header">Event Heading</div>                                
-                                <div class="events-body">                                                                                            
-                                    <div class="row">
-                                    	<div class="col-md-6 pull-left">
-                                            <img class="events-object img-responsive img-rounded" src="../../assets/img/TimeLine/dog01.jpeg" />                                            
-                                        </div>
-                                        <div class="events-desc">
-                                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </div>
-                                    </div>      
-                                    <div class="row">
-                                    	<div class="col-md-6 pull-left">
-                                            <img class="events-object img-responsive img-rounded" src="../../assets/img/TimeLine/dog02.jpeg" />                                            
-                                        </div>
-                                        <div class="events-desc">
-                                        	Morbi at nisi vitae mauris pretium egestas. Morbi placerat risus ligula, nec placerat urna porta vel. Nullam sollicitudin orci quis odio eleifend, ut facilisis orci lobortis. Vivamus sed lobortis odio. Nam volutpat, leo a ullamcorper luctus, sapien libero auctor est, sed semper massa turpis sed quam. Mauris posuere, libero in ultricies dignissim, lacus purus egestas urna, nec semper lorem tellus non eros. Nam at bibendum libero. Curabitur a ante et orci cursus tincidunt. Vivamus dictum, libero et rhoncus congue, nulla erat mollis dui, vitae cursus dui justo quis velit. In a tellus arcu. Nam at lobortis nisl. Donec consequat placerat eros, quis elementum mauris sodales a. Maecenas id feugiat velit. Phasellus dictum eleifend varius. Cras nec orci turpis. Aenean ut turpis nibh.
-                                        </div>
-                                    </div>  
-                                    <div class="row">
-                                    	<div class="col-md-6 pull-left">
-                                            <img class="events-object img-responsive img-rounded" src="../../assets/img/TimeLine/dog03.jpeg" />                                            
-                                        </div>
-                                        <div class="events-desc">
-                                        	Cras condimentum, metus ut vehicula euismod, odio massa pulvinar neque, id gravida neque est et sem. Proin consequat id nibh quis molestie. Quisque vehicula purus id purus elementum facilisis. Phasellus sodales nibh quis neque rhoncus aliquet. Nunc eget ipsum efficitur, pretium arcu et, gravida purus. Phasellus tempor lacus ac enim pulvinar elementum. Integer aliquet justo lacinia nunc tempus vulputate.
-                                        </div>
-                                    </div>                                    
-                                </div>   
-                                <div class="events-footer">
-                                	123
-                                </div>                               
-                            </div>
-                        </dd>
-                        <dt>Feb 2016</dt>
-                        <dd class="pos-right clearfix">
-                            <div class="circ"></div>
-                            <div class="time">Jan 21</div>
-                            <div class="events">
-                                <div class="events-header">A Very Very Log Event Heading</div>                                
-                                <div class="events-body">                                                                                            
-                                    <div class="row">
-                                    	<div class="col-md-6 pull-left">
-                                            <img class="events-object img-responsive img-rounded" src="../../assets/img/TimeLine/cat01.jpeg" />
-                                        </div>
-                                        <div class="events-desc">
-                                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    	<div class="col-md-6 pull-left">
-                                            <img class="events-object img-responsive img-rounded" src="../../assets/img/TimeLine/cat02.jpeg" />
-                                        </div>
-                                        <div class="events-desc">
-                                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    	<div class="col-md-6 pull-left">
-                                            <img class="events-object img-responsive img-rounded" src="../../assets/img/TimeLine/cat03.jpeg" />
-                                        </div>
-                                        <div class="events-desc">
-                                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </div>
-                                    </div>
-                                </div>       
-                                <div class="events-footer">
-                                	
-                                </div>                                                       
-                            </div>
-                        </dd>   
-                        <dd class="pos-left clearfix">
-                            <div class="circ"></div>
-                            <div class="time">Jan 07</div>
-                            <div class="events">
-                                <div class="events-header">Event Heading</div>                                
-                                <div class="events-body">                                                                                            
-                                    <div class="row">
-                                    	<div class="col-md-6 pull-left">
-                                            <img class="events-object img-responsive img-rounded" src="../../assets/img/TimeLine/rabbit01.jpeg" />
-                                        </div>
-                                        <div class="events-desc">
-                                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </div>
-                                    </div>
-                                </div>                                
-                            </div>
-                        </dd>                                    
-                        <dt>Jan 2016</dt>                        
-                        <dt>Dec 2015</dt>
-                        <dt>Oct 2015</dt>
-                        <dt>Sep 2015</dt>
-                        <dt>Aug 2015</dt>
-                    </dl>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/jquery.eeyellow.Timeline.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('.VivaTimeline').vivaTimeline({
-				carousel: true,
-				carouselTime: 3000
-			});
-		});
-    </script>
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script></div>
+                <div class="container"></div>
             </div>
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2021</span></div>
+                    <div class="text-center my-auto copyright"></div>
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
+        <span id="user_id" class="user_id" type="input" style="visibility:hidden" ><%=auth.user.user_id %></span>
 	<% include ../shared/scripts %>
     <script src="../../assets/js/jquery.min.js"></script>
     <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>

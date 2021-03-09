@@ -17,23 +17,37 @@ function loginChecker(router) {
         const auth = {
             isLogin: false,
             isAdmin: false,
+            isPharmy: false,
             user: {}
         }
         //驗證sessionCookie有效性
         admin
-            .auth()
-            .verifySessionCookie(sessionCookie, true)
+            .auth().verifySessionCookie(sessionCookie, true)
             .then(async user => {
                 console.log('[驗證成功使用者為:]', user);
                 const email = user.email
-                auth.isLogin = true;
+                const uid=user.uid
+                // auth.isLogin = true;
                 auth.user = user;
                 //區分權限方法
-                const adminDoc = await db.doc(`adminList/${email}`).get();
+                const adminDoc = await db.doc(`adminList/${uid}`).get();
+                const pharmyDoc = await db.doc(`PharmyList/${email}`).get();
+                // console.log("[adminDoc]的值",adminDoc);
+                // console.log("[pharmyDoc]的值",pharmyDoc)
                 //如果doc存在
-                if (adminDoc.exists) {
+                if (adminDoc.exists==true && pharmyDoc.exists==false) 
+                {
                     //此人就是管理者
                     auth.isAdmin = true;
+                }// }
+                else if(pharmyDoc.exists==true && adminDoc.exists==false) 
+                {   
+                //     //此人就是藥事人員
+                    auth.isPharmy = true;
+                }else(adminDoc.exists==false && pharmyDoc.exists==false)
+                {
+                    //此人事一般使用者
+                    auth.isLogin = true;
                 }
                 //將auth物件全數傳遞給模板使用
                 res.locals.auth = auth;

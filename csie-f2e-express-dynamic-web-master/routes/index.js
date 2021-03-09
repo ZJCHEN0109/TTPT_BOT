@@ -5,8 +5,10 @@ const loginChecker = require("../middleware/login-checker");
 
 //利用中介層(檢查是否登入)
 loginChecker(router)
+
+
 // 首頁路由
-router.get('/', async function (req, res, next) {
+router.get('/product/index', async function (req, res, next) {
   // console.log("有人要看首頁了!");
   //準備一個產品列表的陣列//[{},{},{},....]
   const productList = [];
@@ -33,7 +35,12 @@ router.get('/', async function (req, res, next) {
   res.locals.productList = productList;
   //透過Views/index.ejs產生HTML內容並回應給瀏覽器
   //EJS=>HTML res為HTML的產生器
-  res.render('default');
+  res.render('product/index');
+});
+
+router.get('/', function (req, res, next) {
+  // 渲染 product/create.ejs
+  res.render('./default');
 });
 
 module.exports = router;

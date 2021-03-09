@@ -61,7 +61,8 @@
         </section>
         <% include ../shared/scripts %>
             <script>
-                const pid = "<%= product.id %>" //直接從後端取得送到前端
+                const pid = "<%= product.id %>"
+                 //直接從後端取得送到前端
                 // 更新商品表單送出時
                 $('#editProductForm').submit(function (event) {
                     event.preventDefault();

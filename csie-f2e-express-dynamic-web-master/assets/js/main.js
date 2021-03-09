@@ -31,6 +31,7 @@ $('#loginForm').submit(function (event) {
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(function (response) {
+            //取得idToken
             console.log('[登入成功]', response);
             finalizeFrontEndLogin(response)
         })
@@ -40,18 +41,25 @@ $('#loginForm').submit(function (event) {
         });
 });
 
+
 // 註冊表單送出時
 $('#signUpForm').submit(function (event) {
     event.preventDefault();
     const email = $('#signUpEmail').val(),
-        password = $('#signUpPassword').val();
-    console.log('[開始註冊]', { email: email, password: password });
+          FirstName=$('#InputFirstName').val(),
+          LastName=$('#InputLastName').val(),
+          Fullname=$('#InputFullname').val(),
+          password = $('#signUpPassword').val();
+    console.log('[開始註冊]', { email: email, password: password,FirstName:FirstName,LastName:LastName,Fullname:Fullname });
+    const userbasicinfo={ email: email, password: password,FirstName:FirstName,LastName:LastName,Fullname:Fullname };
+    console.log("[註冊基本資料]",userbasicinfo)
     // TODO: 處理註冊流程
     // https://firebase.google.com/docs/auth/web/start#sign_up_new_users
     firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then(function (response) {
+            //取得idToken
             console.log('[註冊成功]', response);
             finalizeFrontEndLogin(response)
         })
@@ -60,6 +68,9 @@ $('#signUpForm').submit(function (event) {
             alert('註冊失敗');
         });
 });
+
+//將新使用者註冊資料傳送到Firbase資料庫
+
 
 // 登出按鈕點擊時
 $('#logoutBtn').click(function () {

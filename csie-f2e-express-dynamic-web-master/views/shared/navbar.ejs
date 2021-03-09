@@ -1,4 +1,5 @@
 <!-- navbar -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 
@@ -30,11 +31,12 @@
                     <a class="nav-link" data-toggle="modal" href="#loginModal">登入</a>
 
                 </li>
-                <% } %>
+            <% } %>
                     <% if (auth.isLogin){%>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Appointment/">藥事諮詢預約</a>
+                            <a class="nav-link" href="/Appointments/">藥事諮詢預約</a>
                         </li>
+                    <% } %>
                         <% if (auth.isAdmin){%>
                             <li class="nav-item">
                                 <a class="nav-link" href="/product/Carts">Jquery建立商品</a>
@@ -43,6 +45,7 @@
                                 <a class="nav-link" href="/product/create">建立商品</a>
                             </li>
                         <% } %>
+                    <% if (auth.isLogin){%>
                         <li class="nav-item">
                             <a id="logoutBtn" class="nav-link">登出</a>
                         </li>
@@ -58,8 +61,7 @@
 </nav>
 <!-- navbar end -->
 <!-- signUpModal2 -->
-<div class="modal fade" class="modal-dialog" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
-    aria-hidden="true">
+<div class="modal fade" class="modal-dialog" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="card shadow-lg o-hidden border-0 my-5">
             <form id="signUpForm" class="modal-content" data-toggle="validator" role="form">
@@ -81,23 +83,23 @@
                         </div>
                         <div class="form-group">
                             <input class="form-control mb-3 form-control-user" type="text" id="InputFullname"
-                                style="font-size: 15px;" autofocus placeholder="Full Name" name="InputFullname" required>
+                                style="font-size: 15px;" autofocus="" placeholder="Full Name" name="InputFullname" required>
 
                             <input class="form-control form-control-user" type="email" id="signUpEmail"
                                 aria-describedby="emailHelp" placeholder="Email Address" name="email"
-                                style="font-size: 15px;" autofocus data-error="that email address is invalid" required>
+                                style="font-size: 15px;" aria-describedby="emailHelp" autofocus="" data-error="that email address is invalid" required>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <input class="form-control" type="password" id="signUpPassword" for="signUpPassword"
                                     placeholder="Password" name="signUpPassword" style="font-size: 15px;"
-                                    data-match-error="Password don't match" autofocus required minlength="8"
+                                    data-match-error="Password don't match" autofocus="" required minlength="8"
                                     maxlength="20">
                             </div>
                             <div class="col-sm-6 help-block with-errors">
                                 <input class="form-control" type="password" id="confirmpassword" for="confirmpassword"
                                     placeholder="Confirm Password" name="confirmpassword" style="font-size: 15px;"
-                                    data-match="#signUpPassword" data-match-error="Password don't match" autofocus
+                                    data-match="#signUpPassword" data-match-error="Password don't match" autofocus=""
                                     required minlength="8" maxlength="20">
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -158,7 +160,6 @@
         $("#signUpForm").validate({
             rules: {
                 InputFullname: { //使用者名稱必填至少3位 
-                    pattern:true,
                     required: true,
                     minlength: 3
                 },
@@ -177,14 +178,13 @@
                     required: true,
                     mobile: true
                 },
-                signUpEmail: { //email必填 驗證格式 
+                Email: { //email必填 驗證格式 
                     required: true,
                     email: true
                 },
             },
             messages: {
                 InputFullname: {
-                    pattern:"輸入格式錯誤",
                     required: "使用者名稱不能為空!",
                     minlength: "使用者名稱至少三位!"
                 },
