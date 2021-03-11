@@ -15,7 +15,8 @@ const Person = [
             "assigner": "",
             "Facebook": "",
             "Line": "",
-            "email": ""
+            "email": "",
+            "nhicord":""
         },
         "name":
         {
